@@ -1,0 +1,15 @@
+{
+  "title": "cFud exchange file and notes",
+  "name": "cfudexch",
+  "version": "0.0.1",
+  "description": "module provide fast exchange our files and notes with secure encryption aes",
+  "main": "index.js",
+  "author": "cFud",
+  "engines": {
+    "firefox": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}
