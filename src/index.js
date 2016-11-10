@@ -41,6 +41,7 @@ function handleClick1(state) {
 	var prompts = Cc["@mozilla.org/embedcomp/prompt-service;1"].getService(Ci.nsIPromptService);
 	
 	if (state.badge>0){
+		prompts.alert(null, "cFUD transfer status", "File download in the process. Please wait!");	
 		return -1;
 	}
 	
@@ -49,6 +50,7 @@ function handleClick1(state) {
 	const nsIFilePicker = Ci.nsIFilePicker;
 	var fp = Cc["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
 	
+	fp.init(ww.getMostRecentBrowserWindow(), "Select the file for sharing", nsIFilePicker.modeOpen);
 	fp.appendFilters(nsIFilePicker.filterAll | nsIFilePicker.filterText);
 
 	var rv = fp.show();
@@ -76,6 +78,7 @@ function handleClick1(state) {
 		  {
 			var clipboard = require("sdk/clipboard");
 			clipboard.set("Key : "+password + "\r\n" + "URL : https://cfud.biz/en/cryptosharing/download/" + response.text + "\r\n");
+			prompts.alert(null, "The transfer is complete", "Message copied to clipboard");	
 			button1.badge = 0;	
 			button1.badgeColor = "#00AAAA";			
 		  }
